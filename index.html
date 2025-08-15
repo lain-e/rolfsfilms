@@ -85,7 +85,8 @@
             left: 50%;
             transform: translateX(-50%);
         }
-        .dropdown:hover .dropdown-content {
+        /* New CSS to show the dropdown when the 'active-dropdown' class is present on the parent */
+        .dropdown.active-dropdown .dropdown-content {
             display: block;
         }
         .dropdown-content a {
@@ -365,6 +366,22 @@
                     activePage.classList.add('active-page');
                 }
             }
+
+            // ** NEW JAVASCRIPT FOR DROPDOWN TOGGLE **
+            const dropdown = document.querySelector('.dropdown');
+            
+            // Toggle the dropdown menu on click/tap
+            dropdown.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevents the body listener from immediately closing it
+                dropdown.classList.toggle('active-dropdown');
+            });
+
+            // Close the dropdown if the user taps/clicks anywhere else on the page
+            document.body.addEventListener('click', (e) => {
+                if (!dropdown.contains(e.target)) {
+                    dropdown.classList.remove('active-dropdown');
+                }
+            });
 
             // Handle navigation clicks
             navLinks.forEach(link => {
