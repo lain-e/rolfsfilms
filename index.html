@@ -209,7 +209,7 @@
             <div class="space-y-8">
                 <div class="portfolio-item">
                     <h3>Shut Up and Listen: The Kurt Cobain Special</h3>
-                    <img id="kurt-poster" src="" alt="SHUT UP AND LISTEN Kurt poster">
+                    <img src="https://raw.githubusercontent.com/lain-e/rolfsfilms/main/SHUT%20UP%20AND%20LISTEN%20kurt%20poster.png" alt="SHUT UP AND LISTEN Kurt poster">
                     <div class="description-box">
                         <h4>Shut Up and Listen: The Kurt Cobain Special (2024)</h4>
                         <p>I spearheaded the creation of a special segment for my college radio show at SUNY Purchase, honoring the 30th anniversary of Kurt Cobain’s passing, including a curated playlist.</p>
@@ -218,7 +218,7 @@
                 </div>
                 <div class="portfolio-item">
                     <h3>Beatle-Media</h3>
-                    <img id="beatlemedia-flyer" src="" alt="Beatle-Media flyer">
+                    <img src="https://raw.githubusercontent.com/lain-e/rolfsfilms/main/beatlemedia%20flyer%20v2.jpg" alt="Beatle-Media flyer">
                     <div class="description-box">
                         <h4>Beatle-Media</h4>
                         <p>I co-organized a curatorial exhibition and screening called “Beatle-Media” celebrating the Beatles through physical media (i.e. 16mm film, VHS, vinyl records, CDs).</p>
@@ -227,7 +227,7 @@
                 </div>
                 <div class="portfolio-item">
                     <h3>WPSR Sticker</h3>
-                    <img id="wspr-sticker" src="" alt="WPSR sticker">
+                    <img src="https://raw.githubusercontent.com/lain-e/rolfsfilms/main/wspr%20sticker%20v2.png" alt="WPSR sticker">
                     <div class="description-box">
                         <h4>WPSR Sticker</h4>
                         <p>A sticker created for WPSR, the college radio station at SUNY Purchase.</p>
@@ -280,24 +280,6 @@
             // Handle initial page load based on URL hash
             const initialHash = window.location.hash.substring(1) || 'film-video';
             showPage(initialHash);
-
-            // Fetch and display the uploaded images
-            const kurtPosterId = "uploaded:SHUT UP AND LISTEN kurt poster.jpg-eca78d79-f38f-43c3-bb0c-eb1376cdf311";
-            const beatlemediaId = "uploaded:beatlemedia flyer v2.jpg-c86537d1-df5f-452f-beab-b8829303fcf4";
-            const wsprStickerId = "uploaded:wspr sticker v2.jpg-1c88f440-ed23-4c35-9362-9f0cdd84b18b";
-            
-            // Function to set the image source
-            function setUploadedImageSrc(elementId, contentId) {
-                const element = document.getElementById(elementId);
-                if (element && typeof __content_fetcher_url_for_id !== 'undefined') {
-                    const imageUrl = __content_fetcher_url_for_id(contentId);
-                    element.src = imageUrl;
-                }
-            }
-
-            setUploadedImageSrc('kurt-poster', kurtPosterId);
-            setUploadedImageSrc('beatlemedia-flyer', beatlemediaId);
-            setUploadedImageSrc('wspr-sticker', wsprStickerId);
         });
     </script>
 </body>
