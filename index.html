@@ -59,11 +59,12 @@
             box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
             z-index: 1;
             border-radius: 0.75rem;
-            top: 100%; /* Position below the main button */
+            top: 100%;
             left: 50%;
             transform: translateX(-50%);
             margin-top: 0.5rem;
-            padding: 0.5rem 0;
+            padding-top: 0.5rem; /* Add padding to make hover seamless */
+            padding-bottom: 0.5rem;
         }
         .dropdown:hover .dropdown-content {
             display: block;
@@ -94,7 +95,7 @@
             
             <!-- Portfolio Dropdown Menu -->
             <div class="dropdown">
-                <a class="text-lg font-medium text-gray-600 hover:text-gray-900 transition duration-300">Portfolio</a>
+                <span class="text-lg font-medium text-gray-600 hover:text-gray-900 transition duration-300 cursor-pointer">Portfolio</span>
                 <div class="dropdown-content">
                     <a href="#film-video" class="nav-link">Film & Video</a>
                     <a href="#graphic-design" class="nav-link">Graphic & Promotional Design</a>
