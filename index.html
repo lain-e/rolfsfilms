@@ -135,7 +135,7 @@
         }
 
         .hero-overlay {
-            /* Changed to flexbox with space-between to position elements */
+            /* Now using a single flex container for all hero text and the button */
             position: absolute;
             top: 0;
             left: 0;
@@ -144,17 +144,11 @@
             background-color: rgba(0, 0, 0, 0.5);
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: center; /* Center everything vertically */
             align-items: center;
             text-align: center;
             color: #fff;
             z-index: 2;
-            padding: 2rem; /* Added padding to prevent content from touching edges */
-        }
-
-        /* The button container is now gone. The button is directly inside the flexbox overlay. */
-        .hero-button-container {
-            padding-bottom: 2.5rem; /* Increased padding bottom for better spacing */
         }
     </style>
 </head>
@@ -164,20 +158,13 @@
     <div id="hero-section" class="hero-video-container">
         <img class="hero-video" src="https://raw.githubusercontent.com/lain-e/rolfsfilms/main/rfilm.gif" alt="A looping montage of film clips by Lilian Rolfs">
         
-        <!-- The overlay is now a flex container that manages its children -->
+        <!-- The hero overlay now contains all content in a centered flex column -->
         <div class="hero-overlay">
-            <!-- Top part of the overlay for title and subtitle -->
-            <div class="w-full h-full flex flex-col justify-center items-center">
-                <h1 class="text-5xl md:text-6xl font-normal mb-2">Lilian Rolfs</h1>
-                <h2 class="text-lg md:text-xl font-normal text-white">Artist + Filmmaker</h2>
-            </div>
-            
-            <!-- Bottom part of the overlay for the button -->
-            <div class="hero-button-container">
-                <a href="#portfolio-start" class="bg-white text-black font-semibold py-3 px-6 rounded-full shadow-lg hover:bg-gray-200 transition duration-300 ease-in-out">
-                    See My Work
-                </a>
-            </div>
+            <h1 class="text-5xl md:text-6xl font-normal mb-2">Lilian Rolfs</h1>
+            <h2 class="text-lg md:text-xl font-normal text-white mb-8">Artist + Filmmaker</h2>
+            <a href="#portfolio-start" class="bg-white text-black font-semibold py-3 px-6 rounded-full shadow-lg hover:bg-gray-200 transition duration-300 ease-in-out">
+                See My Work
+            </a>
         </div>
     </div>
     
@@ -343,7 +330,7 @@
             const navLinks = document.querySelectorAll('.nav-link');
             const pages = document.querySelectorAll('.page-content');
             const heroSection = document.getElementById('hero-section');
-            const scrollButton = document.querySelector('.hero-button-container a');
+            const scrollButton = document.querySelector('.hero-overlay a'); /* Updated selector */
 
             // Add an event listener to the scroll button
             if (scrollButton) {
