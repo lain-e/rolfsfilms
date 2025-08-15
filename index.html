@@ -160,22 +160,6 @@
     </style>
 </head>
 <body class="bg-black text-white">
-
-    <!-- Hero Video Section -->
-    <div class="hero-video-container">
-        <img class="hero-video" src="https://raw.githubusercontent.com/lain-e/rolfsfilms/main/rfilm.gif" alt="A looping montage of film clips by Lilian Rolfs">
-        <!-- The overlay now correctly contains the hero text -->
-        <div class="hero-overlay">
-            <h1 class="text-5xl md:text-6xl font-normal mb-2">Lilian Rolfs</h1>
-            <h2 class="text-lg md:text-xl font-normal text-white">Artist + Filmmaker</h2>
-        </div>
-        <!-- Button to scroll down -->
-        <div class="hero-button-container">
-            <a href="#portfolio-start" class="bg-white text-black font-semibold py-3 px-6 rounded-full shadow-lg hover:bg-gray-200 transition duration-300 ease-in-out">
-                See My Work
-            </a>
-        </div>
-    </div>
     
     <div class="container mx-auto px-4 py-8 max-w-5xl pb-20">
         <!-- Navigation Bar -->
@@ -195,12 +179,24 @@
 
         <!-- Page Containers -->
         <!-- Film & Video Page -->
-        <div id="film-video-page" class="page-content active-page bg-black p-8 rounded-xl shadow-md">
+        <div id="film-video-page" class="page-content active-page bg-black p-8 rounded-xl shadow-md pt-24">
+            <!-- Hero Video Section -->
+            <div class="hero-video-container">
+                <img class="hero-video" src="https://raw.githubusercontent.com/lain-e/rolfsfilms/main/rfilm.gif" alt="A looping montage of film clips by Lilian Rolfs">
+                <!-- The overlay now correctly contains the hero text -->
+                <div class="hero-overlay">
+                    <h1 class="text-5xl md:text-6xl font-normal mb-2">Lilian Rolfs</h1>
+                    <h2 class="text-lg md:text-xl font-normal text-white">Artist + Filmmaker</h2>
+                </div>
+                <!-- Button to scroll down -->
+                <div class="hero-button-container">
+                    <a href="#portfolio-start" class="bg-white text-black font-semibold py-3 px-6 rounded-full shadow-lg hover:bg-gray-200 transition duration-300 ease-in-out">
+                        See My Work
+                    </a>
+                </div>
+            </div>
             
-            <!-- This is the element the button will scroll to -->
-            <div id="portfolio-start"></div>
-
-            <p class="text-lg text-gray-300 mb-8 text-center">A collection of film and video works by Lilian Rolfs.</p>
+            <p class="text-lg text-gray-300 mb-8 text-center" id="portfolio-start">A collection of film and video works by Lilian Rolfs.</p>
             <div class="space-y-12">
                 <div class="portfolio-item">
                     <h3>A childhood home</h3>
