@@ -85,8 +85,7 @@
             left: 50%;
             transform: translateX(-50%);
         }
-        /* New CSS to show the dropdown when the 'active-dropdown' class is present on the parent */
-        .dropdown.active-dropdown .dropdown-content {
+        .dropdown:hover .dropdown-content {
             display: block;
         }
         .dropdown-content a {
@@ -178,23 +177,22 @@
         </div>
     </div>
     
-    <!-- Navigation Bar - Now fixed to the top -->
-    <nav class="fixed top-0 left-0 w-full z-50 bg-black p-4 rounded-xl shadow-md flex justify-center space-x-4 mb-8">
-        <!-- Portfolio Dropdown Menu -->
-        <div class="dropdown">
-            <span class="text-lg font-medium text-gray-300 hover:text-white transition duration-300 cursor-pointer">Portfolio</span>
-            <div class="dropdown-content">
-                <a href="#film-video" class="nav-link">Film & Video</a>
-                <a href="#graphic-design" class="nav-link">Graphic & Promotional Design</a>
+    <div class="container mx-auto px-4 py-8 max-w-5xl pb-20">
+        <!-- Navigation Bar -->
+        <nav class="bg-black p-4 rounded-xl shadow-md flex justify-center space-x-4 mb-8">
+            <!-- Portfolio Dropdown Menu -->
+            <div class="dropdown">
+                <span class="text-lg font-medium text-gray-300 hover:text-white transition duration-300 cursor-pointer">Portfolio</span>
+                <div class="dropdown-content">
+                    <a href="#film-video" class="nav-link">Film & Video</a>
+                    <a href="#graphic-design" class="nav-link">Graphic & Promotional Design</a>
+                </div>
             </div>
-        </div>
 
-        <a href="#about" class="nav-link text-lg font-medium text-gray-300 hover:text-white transition duration-300">About Me</a>
-        <a href="#contact" class="nav-link text-lg font-medium text-gray-300 hover:text-white transition duration-300">Contact</a>
-    </nav>
+            <a href="#about" class="nav-link text-lg font-medium text-gray-300 hover:text-white transition duration-300">About Me</a>
+            <a href="#contact" class="nav-link text-lg font-medium text-gray-300 hover:text-white transition duration-300">Contact</a>
+        </nav>
 
-    <!-- Main Content Container - Added padding-top to clear the fixed nav bar -->
-    <div class="container mx-auto px-4 py-8 max-w-5xl pb-20 pt-24">
         <!-- Page Containers -->
         <!-- Film & Video Page -->
         <div id="film-video-page" class="page-content active-page bg-black p-8 rounded-xl shadow-md">
@@ -366,22 +364,6 @@
                     activePage.classList.add('active-page');
                 }
             }
-
-            // ** NEW JAVASCRIPT FOR DROPDOWN TOGGLE **
-            const dropdown = document.querySelector('.dropdown');
-            
-            // Toggle the dropdown menu on click/tap
-            dropdown.addEventListener('click', (e) => {
-                e.stopPropagation(); // Prevents the body listener from immediately closing it
-                dropdown.classList.toggle('active-dropdown');
-            });
-
-            // Close the dropdown if the user taps/clicks anywhere else on the page
-            document.body.addEventListener('click', (e) => {
-                if (!dropdown.contains(e.target)) {
-                    dropdown.classList.remove('active-dropdown');
-                }
-            });
 
             // Handle navigation clicks
             navLinks.forEach(link => {
