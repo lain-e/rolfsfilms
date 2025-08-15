@@ -150,6 +150,13 @@
             bottom: 10%; /* Position on the lower half of the hero */
             z-index: 3;
         }
+
+        /* Fix: Adjust button position for mobile devices to prevent overlap */
+        @media (max-width: 768px) {
+            .hero-button-container {
+                bottom: 5rem; /* Pushes the button up from the bottom */
+            }
+        }
     </style>
 </head>
 <body class="bg-black text-white">
