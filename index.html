@@ -20,7 +20,6 @@
             font-family: 'Oswald', sans-serif;
         }
         h2, h4 {
-            /* Fixed font name */
             font-family: 'Abril Fatface', serif;
         }
         .page-content {
@@ -98,6 +97,11 @@
         .dropdown-content a:hover {
             background-color: #111827;
         }
+        /* New CSS to show the dropdown when the 'active-dropdown' class is present on the parent */
+        .dropdown.active-dropdown .dropdown-content {
+            display: block;
+        }
+
         @media (max-width: 768px) {
             .portfolio-item iframe {
                 height: 250px;
@@ -107,20 +111,22 @@
         .hero-video-container {
             position: relative;
             width: 100%;
-            min-height: 100vh; /* This makes the hero section full height of the viewport */
+            min-height: 100vh;
             overflow: hidden;
-            display: flex; /* Flexbox for centering content */
-            align-items: center; /* Center vertically */
-            justify-content: center; /* Center horizontally */
-            flex-direction: column; /* Stack children vertically */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        /* The hidden class will be added/removed by JavaScript */
+        .hero-video-container.hidden {
+            display: none;
         }
         
         .hero-video {
             width: 100%;
             height: 100%;
-            /* This property is crucial for the hero to fit the screen without cropping */
-            /* 'contain' fits the entire image, but may result in empty space (letterboxing) */
-            /* 'cover' fills the entire area, but may crop parts of the image */
             object-fit: contain;
             position: absolute;
             top: 0;
@@ -129,74 +135,69 @@
         }
 
         .hero-overlay {
-            /* Fix: Added padding and flex properties for better spacing */
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+            background-color: rgba(0, 0, 0, 0.5);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             color: #fff;
-            z-index: 2; /* Ensure overlay is above the image/gif */
+            z-index: 2;
         }
 
         .hero-button-container {
             position: absolute;
-            bottom: 10%; /* Position on the lower half of the hero */
+            bottom: 10%;
             z-index: 3;
-        }
-
-        /* Fix: Adjust button position for mobile devices to prevent overlap */
-        @media (max-width: 768px) {
-            .hero-button-container {
-                bottom: 20%; /* Pushes the button up from the bottom */
-            }
         }
     </style>
 </head>
 <body class="bg-black text-white">
+
+    <!-- Hero Video Section - Now outside the page containers -->
+    <div id="hero-section" class="hero-video-container">
+        <img class="hero-video" src="https://raw.githubusercontent.com/lain-e/rolfsfilms/main/rfilm.gif" alt="A looping montage of film clips by Lilian Rolfs">
+        <div class="hero-overlay">
+            <h1 class="text-5xl md:text-6xl font-normal mb-2">Lilian Rolfs</h1>
+            <h2 class="text-lg md:text-xl font-normal text-white">Artist + Filmmaker</h2>
+        </div>
+        <div class="hero-button-container">
+            <a href="#portfolio-start" class="bg-white text-black font-semibold py-3 px-6 rounded-full shadow-lg hover:bg-gray-200 transition duration-300 ease-in-out">
+                See My Work
+            </a>
+        </div>
+    </div>
     
-    <div class="container mx-auto px-4 py-8 max-w-5xl pb-20">
-        <!-- Navigation Bar -->
-        <nav class="bg-black p-4 rounded-xl shadow-md flex justify-center space-x-4 mb-8">
-            <!-- Portfolio Dropdown Menu -->
-            <div class="dropdown">
-                <span class="text-lg font-medium text-gray-300 hover:text-white transition duration-300 cursor-pointer">Portfolio</span>
-                <div class="dropdown-content">
-                    <a href="#film-video" class="nav-link">Film & Video</a>
-                    <a href="#graphic-design" class="nav-link">Graphic & Promotional Design</a>
-                </div>
+    <!-- Navigation Bar - Now fixed to the top -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-black p-4 rounded-xl shadow-md flex justify-center space-x-4 mb-8">
+        <!-- Portfolio Dropdown Menu -->
+        <div class="dropdown">
+            <span class="text-lg font-medium text-gray-300 hover:text-white transition duration-300 cursor-pointer">Portfolio</span>
+            <div class="dropdown-content">
+                <a href="#film-video" class="nav-link">Film & Video</a>
+                <a href="#graphic-design" class="nav-link">Graphic & Promotional Design</a>
             </div>
+        </div>
 
-            <a href="#about" class="nav-link text-lg font-medium text-gray-300 hover:text-white transition duration-300">About Me</a>
-            <a href="#contact" class="nav-link text-lg font-medium text-gray-300 hover:text-white transition duration-300">Contact</a>
-        </nav>
+        <a href="#about" class="nav-link text-lg font-medium text-gray-300 hover:text-white transition duration-300">About Me</a>
+        <a href="#contact" class="nav-link text-lg font-medium text-gray-300 hover:text-white transition duration-300">Contact</a>
+    </nav>
 
+    <!-- Main Content Container - Added padding-top to clear the fixed nav bar -->
+    <div class="container mx-auto px-4 py-8 max-w-5xl pb-20 pt-24">
         <!-- Page Containers -->
         <!-- Film & Video Page -->
-        <div id="film-video-page" class="page-content active-page bg-black p-8 rounded-xl shadow-md pt-24">
-            <!-- Hero Video Section -->
-            <div class="hero-video-container">
-                <img class="hero-video" src="https://raw.githubusercontent.com/lain-e/rolfsfilms/main/rfilm.gif" alt="A looping montage of film clips by Lilian Rolfs">
-                <!-- The overlay now correctly contains the hero text -->
-                <div class="hero-overlay">
-                    <h1 class="text-5xl md:text-6xl font-normal mb-2">Lilian Rolfs</h1>
-                    <h2 class="text-lg md:text-xl font-normal text-white">Artist + Filmmaker</h2>
-                </div>
-                <!-- Button to scroll down -->
-                <div class="hero-button-container">
-                    <a href="#portfolio-start" class="bg-white text-black font-semibold py-3 px-6 rounded-full shadow-lg hover:bg-gray-200 transition duration-300 ease-in-out">
-                        See My Work
-                    </a>
-                </div>
-            </div>
+        <div id="film-video-page" class="page-content active-page bg-black p-8 rounded-xl shadow-md">
             
-            <p class="text-lg text-gray-300 mb-8 text-center" id="portfolio-start">A collection of film and video works by Lilian Rolfs.</p>
+            <!-- This is the element the button will scroll to -->
+            <div id="portfolio-start"></div>
+
+            <p class="text-lg text-gray-300 mb-8 text-center">A collection of film and video works by Lilian Rolfs.</p>
             <div class="space-y-12">
                 <div class="portfolio-item">
                     <h3>A childhood home</h3>
@@ -333,9 +334,10 @@
         document.addEventListener('DOMContentLoaded', () => {
             const navLinks = document.querySelectorAll('.nav-link');
             const pages = document.querySelectorAll('.page-content');
-            
-            // Add an event listener to the scroll button
+            const heroSection = document.getElementById('hero-section');
             const scrollButton = document.querySelector('.hero-button-container a');
+
+            // Add an event listener to the scroll button
             if (scrollButton) {
                 scrollButton.addEventListener('click', (e) => {
                     e.preventDefault();
@@ -350,16 +352,44 @@
                 });
             }
 
-            // Function to show the correct page
+            // Function to show the correct page and manage the hero section visibility
             function showPage(pageId) {
                 pages.forEach(page => {
                     page.classList.remove('active-page');
                 });
+
                 const activePage = document.getElementById(pageId + '-page');
                 if (activePage) {
                     activePage.classList.add('active-page');
                 }
+
+                // Show the hero section only for the 'film-video' page
+                if (pageId === 'film-video') {
+                    heroSection.classList.remove('hidden');
+                    // Add padding to the top of the content to accommodate the hero section
+                    document.querySelector('.container').classList.remove('pt-24');
+                } else {
+                    heroSection.classList.add('hidden');
+                    // Add padding to the top of the content for a fixed navbar
+                    document.querySelector('.container').classList.add('pt-24');
+                }
             }
+            
+            // ** NEW JAVASCRIPT FOR DROPDOWN TOGGLE **
+            const dropdown = document.querySelector('.dropdown');
+            
+            // Toggle the dropdown menu on click/tap
+            dropdown.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevents the body listener from immediately closing it
+                dropdown.classList.toggle('active-dropdown');
+            });
+
+            // Close the dropdown if the user taps/clicks anywhere else on the page
+            document.body.addEventListener('click', (e) => {
+                if (!dropdown.contains(e.target)) {
+                    dropdown.classList.remove('active-dropdown');
+                }
+            });
 
             // Handle navigation clicks
             navLinks.forEach(link => {
