@@ -10,9 +10,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Oswald:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Global styles changed to a dark theme */
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #f7fafc;
+            background-color: #000; /* Changed from light gray to black */
+            color: #fff; /* Changed default text color to white */
         }
         h1, h3 {
             font-family: 'Oswald', sans-serif;
@@ -22,6 +24,7 @@
         }
         .page-content {
             display: none;
+            background-color: #000; /* Changed from white to black */
         }
         .active-page {
             display: block;
@@ -32,33 +35,37 @@
         .portfolio-item h3 {
             font-size: 1.75rem;
             font-weight: 400;
-            color: #1a202c;
+            color: #fff; /* Changed from dark gray to white */
             margin-bottom: 0.5rem;
         }
         .portfolio-item iframe {
             width: 100%;
             height: 400px;
             border-radius: 0.75rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 4px 6px -1px rgba(255, 255, 255, 0.1), 0 2px 4px -1px rgba(255, 255, 255, 0.06);
         }
         .portfolio-item img {
             max-width: 100%;
             height: auto;
             border-radius: 0.75rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 4px 6px -1px rgba(255, 255, 255, 0.1), 0 2px 4px -1px rgba(255, 255, 255, 0.06);
             margin-bottom: 1rem;
         }
         .description-box {
-            background-color: #f9fafb;
+            background-color: #111827; /* Changed from light gray to dark gray */
             padding: 1.5rem;
             border-radius: 0.75rem;
             margin-top: 1rem;
-            border: 1px solid #e5e7eb;
+            border: 1px solid #374151; /* Changed from light gray to dark gray */
         }
         .description-box h4 {
             font-size: 1.5rem;
             font-weight: 400;
+            color: #fff; /* Changed from dark gray to white */
             margin-bottom: 0.5rem;
+        }
+        .description-box p {
+            color: #d1d5db; /* A lighter gray for readability on the dark background */
         }
         /* Custom CSS for the dropdown menu */
         .dropdown {
@@ -68,9 +75,9 @@
         .dropdown-content {
             display: none;
             position: absolute;
-            background-color: #f9fafb;
+            background-color: #000; /* Changed from white to black */
             min-width: 160px;
-            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            box-shadow: 0 8px 16px 0 rgba(255,255,255,0.1);
             z-index: 1;
             border-radius: 0.75rem;
             top: 100%;
@@ -81,14 +88,14 @@
             display: block;
         }
         .dropdown-content a {
-            color: #4a5568;
+            color: #d1d5db; /* Lighter color for visibility on black */
             padding: 12px 16px;
             text-decoration: none;
             display: block;
             text-align: center;
         }
         .dropdown-content a:hover {
-            background-color: #e2e8f0;
+            background-color: #111827;
         }
         @media (max-width: 768px) {
             .portfolio-item iframe {
@@ -110,7 +117,10 @@
         .hero-video {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* This makes the video/gif fill the container, cropping parts if necessary */
+            /* This property is crucial for the hero to fit the screen without cropping */
+            /* 'contain' fits the entire image, but may result in empty space (letterboxing) */
+            /* 'cover' fills the entire area, but may crop parts of the image */
+            object-fit: contain;
             position: absolute;
             top: 0;
             left: 0;
@@ -140,7 +150,7 @@
         }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-black text-white">
 
     <!-- Hero Video Section -->
     <div class="hero-video-container">
@@ -150,7 +160,7 @@
         </div>
         <!-- Button to scroll down -->
         <div class="hero-button-container">
-            <a href="#portfolio-start" class="bg-gray-800 text-white font-semibold py-3 px-6 rounded-full shadow-lg hover:bg-gray-700 transition duration-300 ease-in-out">
+            <a href="#portfolio-start" class="bg-white text-black font-semibold py-3 px-6 rounded-full shadow-lg hover:bg-gray-200 transition duration-300 ease-in-out">
                 See My Work
             </a>
         </div>
@@ -158,28 +168,28 @@
     
     <div class="container mx-auto px-4 py-8 max-w-5xl pb-20">
         <!-- Navigation Bar -->
-        <nav class="bg-white p-4 rounded-xl shadow-md flex justify-center space-x-4 mb-8">
+        <nav class="bg-black p-4 rounded-xl shadow-md flex justify-center space-x-4 mb-8">
             <!-- Portfolio Dropdown Menu -->
             <div class="dropdown">
-                <span class="text-lg font-medium text-gray-600 hover:text-gray-900 transition duration-300 cursor-pointer">Portfolio</span>
+                <span class="text-lg font-medium text-gray-300 hover:text-white transition duration-300 cursor-pointer">Portfolio</span>
                 <div class="dropdown-content">
                     <a href="#film-video" class="nav-link">Film & Video</a>
                     <a href="#graphic-design" class="nav-link">Graphic & Promotional Design</a>
                 </div>
             </div>
 
-            <a href="#about" class="nav-link text-lg font-medium text-gray-600 hover:text-gray-900 transition duration-300">About Me</a>
-            <a href="#contact" class="nav-link text-lg font-medium text-gray-600 hover:text-gray-900 transition duration-300">Contact</a>
+            <a href="#about" class="nav-link text-lg font-medium text-gray-300 hover:text-white transition duration-300">About Me</a>
+            <a href="#contact" class="nav-link text-lg font-medium text-gray-300 hover:text-white transition duration-300">Contact</a>
         </nav>
 
         <!-- Page Containers -->
         <!-- Film & Video Page -->
-        <div id="film-video-page" class="page-content active-page bg-white p-8 rounded-xl shadow-md">
+        <div id="film-video-page" class="page-content active-page bg-black p-8 rounded-xl shadow-md">
             
             <!-- This is the element the button will scroll to -->
             <div id="portfolio-start"></div>
 
-            <p class="text-lg text-gray-600 mb-8 text-center">A collection of film and video works by Lilian Rolfs.</p>
+            <p class="text-lg text-gray-300 mb-8 text-center">A collection of film and video works by Lilian Rolfs.</p>
             <div class="space-y-12">
                 <div class="portfolio-item">
                     <h3>A childhood home</h3>
@@ -191,7 +201,7 @@
                     <div class="description-box">
                         <h4>Grá (2023)</h4>
                         <p>Grá is an interactive art installation piece using elements of video, projection, and sculpture to explore themes of memory and trauma, specifically within the context of Northern Ireland’s “Troubles.” Edited with Adobe Premiere Pro.</p>
-                        <p class="mt-2 text-sm text-gray-500">Viewing link: <a href="https://youtu.be/XcXllw0P0-w" class="text-blue-500 hover:underline">https://youtu.be/XcXllw0P0-w</a></p>
+                        <p class="mt-2 text-sm text-gray-500">Viewing link: <a href="https://youtu.be/XcXllw0P0-w" class="text-blue-400 hover:underline">https://youtu.be/XcXllw0P0-w</a></p>
                     </div>
                 </div>
                 <div class="portfolio-item">
@@ -258,9 +268,9 @@
         </div>
 
         <!-- Graphic & Promotional Design Page -->
-        <div id="graphic-design-page" class="page-content bg-white p-8 rounded-xl shadow-md">
+        <div id="graphic-design-page" class="page-content bg-black p-8 rounded-xl shadow-md">
             <h1 class="text-5xl font-normal mb-8 text-center">Graphic & Promotional Design</h1>
-            <p class="text-lg text-gray-600 mb-8 text-center">A collection of graphic and promotional design projects.</p>
+            <p class="text-lg text-gray-300 mb-8 text-center">A collection of graphic and promotional design projects.</p>
             <div class="space-y-8">
                 <div class="portfolio-item">
                     <h3>Shut Up and Listen: The Kurt Cobain Special</h3>
@@ -268,7 +278,7 @@
                     <div class="description-box">
                         <h4>Shut Up and Listen: The Kurt Cobain Special (2024)</h4>
                         <p>I spearheaded the creation of a special segment for my college radio show at SUNY Purchase, honoring the 30th anniversary of Kurt Cobain’s passing, including a curated playlist.</p>
-                        <p class="mt-2 text-sm text-gray-500">Link to recorded segment: <a href="https://www.mixcloud.com/wpsr4ever/shut-up-and-listen-kurt-cobain-special/" class="text-blue-500 hover:underline">https://www.mixcloud.com/wpsr4ever/shut-up-and-listen-kurt-cobain-special/</a></p>
+                        <p class="mt-2 text-sm text-gray-500">Link to recorded segment: <a href="https://www.mixcloud.com/wpsr4ever/shut-up-and-listen-kurt-cobain-special/" class="text-blue-400 hover:underline">https://www.mixcloud.com/wpsr4ever/shut-up-and-listen-kurt-cobain-special/</a></p>
                     </div>
                 </div>
                 <div class="portfolio-item">
@@ -277,7 +287,7 @@
                     <div class="description-box">
                         <h4>Beatle-Media</h4>
                         <p>I co-organized a curatorial exhibition and screening called “Beatle-Media” celebrating the Beatles through physical media (i.e. 16mm film, VHS, vinyl records, CDs).</p>
-                        <p class="mt-2 text-sm text-gray-500">Viewing link: <a href="https://youtube.com/shorts/IJPOwAFlrFY?feature=share" class="text-blue-500 hover:underline">https://youtube.com/shorts/IJPOwAFlrFY?feature=share</a></p>
+                        <p class="mt-2 text-sm text-gray-500">Viewing link: <a href="https://youtube.com/shorts/IJPOwAFlrFY?feature=share" class="text-blue-400 hover:underline">https://youtube.com/shorts/IJPOwAFlrFY?feature=share</a></p>
                     </div>
                 </div>
                 <div class="portfolio-item">
@@ -292,15 +302,15 @@
         </div>
 
         <!-- About Me Page -->
-        <div id="about-page" class="page-content bg-white p-8 rounded-xl shadow-md">
+        <div id="about-page" class="page-content bg-black p-8 rounded-xl shadow-md">
             <h1 class="text-5xl font-normal mb-6 text-center">About Me</h1>
-            <p class="text-lg text-gray-600 mb-4">My name is Lilian Rolfs and I am a multimedia artist based in Pleasantville, New York. As a recent college graduate, I am currently seeking opportunities in screenwriting and film/video production. I earned a Bachelor of Arts in Screenwriting and an Associate in Film/Video Production at SUNY Purchase College. For my senior thesis, I wrote an an 80-page feature-length screenplay titled, Let It Roll, in which I explored themes of nostalgia, familial ties, popular culture, and the everlasting impact of art, with a backdrop of 1980s Seattle. My goal as an artist and creator is to produce meaningful and resonant experiences for my audience. I am very interested in experimental approaches to filmmaking and storytelling to achieve that goal and incorporate the reinvention of traditional techniques.</p>
+            <p class="text-lg text-gray-300 mb-4">My name is Lilian Rolfs and I am a multimedia artist based in Pleasantville, New York. As a recent college graduate, I am currently seeking opportunities in screenwriting and film/video production. I earned a Bachelor of Arts in Screenwriting and an Associate in Film/Video Production at SUNY Purchase College. For my senior thesis, I wrote an an 80-page feature-length screenplay titled, Let It Roll, in which I explored themes of nostalgia, familial ties, popular culture, and the everlasting impact of art, with a backdrop of 1980s Seattle. My goal as an artist and creator is to produce meaningful and resonant experiences for my audience. I am very interested in experimental approaches to filmmaking and storytelling to achieve that goal and incorporate the reinvention of traditional techniques.</p>
         </div>
 
         <!-- Contact Page -->
-        <div id="contact-page" class="page-content bg-white p-8 rounded-xl shadow-md">
+        <div id="contact-page" class="page-content bg-black p-8 rounded-xl shadow-md">
             <h1 class="text-5xl font-normal mb-6 text-center">Contact</h1>
-            <p class="text-lg text-gray-600 mb-4 text-center">Interested in working with me? Please see my contact information below.</p>
+            <p class="text-lg text-gray-300 mb-4 text-center">Interested in working with me? Please see my contact information below.</p>
             <div class="text-center">
                 <p class="text-xl font-semibold">Email: lilianrolfs@example.com</p>
             </div>
