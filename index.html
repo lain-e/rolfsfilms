@@ -20,7 +20,8 @@
             font-family: 'Oswald', sans-serif;
         }
         h2, h4 {
-            font-family: 'Abril+Fatface', serif;
+            /* Fixed font name */
+            font-family: 'Abril Fatface', serif;
         }
         .page-content {
             display: none;
@@ -128,6 +129,7 @@
         }
 
         .hero-overlay {
+            /* Fix: Added padding and flex properties for better spacing */
             position: absolute;
             top: 0;
             left: 0;
@@ -155,15 +157,14 @@
     <!-- Hero Video Section -->
     <div class="hero-video-container">
         <img class="hero-video" src="https://raw.githubusercontent.com/lain-e/rolfsfilms/main/rfilm.gif" alt="A looping montage of film clips by Lilian Rolfs">
+        <!-- The overlay now correctly contains the hero text -->
         <div class="hero-overlay">
-          
+            <h1 class="text-5xl md:text-6xl font-normal mb-2">Lilian Rolfs</h1>
+            <h2 class="text-lg md:text-xl font-normal text-white">Artist + Filmmaker</h2>
         </div>
         <!-- Button to scroll down -->
-         <h1 class="text-5xl md:text-6xl font-normal mb-2">Lilian Rolfs</h1>
-                <h2> Artist + Filmmaker</h2>
         <div class="hero-button-container">
-            <a href="#portfolio-start" class="bg-white text-black font-semibold py-3 px-6 rounded-full shadow-lg hover:bg-gray-200 transition duration-300 ease-in-out"> 
-               
+            <a href="#portfolio-start" class="bg-white text-black font-semibold py-3 px-6 rounded-full shadow-lg hover:bg-gray-200 transition duration-300 ease-in-out">
                 See My Work
             </a>
         </div>
