@@ -99,17 +99,25 @@
         .hero-video-container {
             position: relative;
             width: 100%;
-            height: 400px; /* Adjust height as needed */
+            min-height: 100vh; /* This makes the hero section full height of the viewport */
             overflow: hidden;
             border-radius: 0.75rem;
             margin-bottom: 2rem;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            display: flex; /* Flexbox for centering content */
+            align-items: center; /* Center vertically */
+            justify-content: center; /* Center horizontally */
+            flex-direction: column; /* Stack children vertically */
         }
         
         .hero-video {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
         }
 
         .hero-overlay {
@@ -125,6 +133,13 @@
             align-items: center;
             text-align: center;
             color: #fff;
+            z-index: 2; /* Ensure overlay is above the image/gif */
+        }
+
+        .hero-button-container {
+            position: absolute;
+            bottom: 10%; /* Position on the lower half of the hero */
+            z-index: 3;
         }
     </style>
 </head>
@@ -154,9 +169,18 @@
             <div class="hero-video-container">
                 <img class="hero-video" src="https://raw.githubusercontent.com/lain-e/rolfsfilms/main/rfilm.gif" alt="A looping montage of film clips by Lilian Rolfs">
                 <div class="hero-overlay">
-                   
+                    <h1 class="text-5xl md:text-6xl font-normal mb-2">Lilian Rolfs</h1>
+                </div>
+                <!-- Button to scroll down -->
+                <div class="hero-button-container">
+                    <a href="#portfolio-start" class="bg-gray-800 text-white font-semibold py-3 px-6 rounded-full shadow-lg hover:bg-gray-700 transition duration-300 ease-in-out">
+                        See My Work
+                    </a>
                 </div>
             </div>
+
+            <!-- This is the element the button will scroll to -->
+            <div id="portfolio-start"></div>
 
             <p class="text-lg text-gray-600 mb-8 text-center">A collection of film and video works by Lilian Rolfs.</p>
             <div class="space-y-12">
@@ -273,7 +297,7 @@
         <!-- About Me Page -->
         <div id="about-page" class="page-content bg-white p-8 rounded-xl shadow-md">
             <h1 class="text-5xl font-normal mb-6 text-center">About Me</h1>
-            <p class="text-lg text-gray-600 mb-4">My name is Lilian Rolfs and I am a multimedia artist based in Pleasantville, New York. As a recent college graduate, I am currently seeking opportunities in screenwriting and film/video production. I earned a Bachelor of Arts in Screenwriting and an Associate in Film/Video Production at SUNY Purchase College. For my senior thesis, I wrote an 80-page feature-length screenplay titled, Let It Roll, in which I explored themes of nostalgia, familial ties, popular culture, and the everlasting impact of art, with a backdrop of 1980s Seattle. My goal as an artist and creator is to produce meaningful and resonant experiences for my audience. I am very interested in experimental approaches to filmmaking and storytelling to achieve that goal and incorporate the reinvention of traditional techniques.</p>
+            <p class="text-lg text-gray-600 mb-4">My name is Lilian Rolfs and I am a multimedia artist based in Pleasantville, New York. As a recent college graduate, I am currently seeking opportunities in screenwriting and film/video production. I earned a Bachelor of Arts in Screenwriting and an Associate in Film/Video Production at SUNY Purchase College. For my senior thesis, I wrote an an 80-page feature-length screenplay titled, Let It Roll, in which I explored themes of nostalgia, familial ties, popular culture, and the everlasting impact of art, with a backdrop of 1980s Seattle. My goal as an artist and creator is to produce meaningful and resonant experiences for my audience. I am very interested in experimental approaches to filmmaking and storytelling to achieve that goal and incorporate the reinvention of traditional techniques.</p>
         </div>
 
         <!-- Contact Page -->
@@ -295,6 +319,20 @@
         document.addEventListener('DOMContentLoaded', () => {
             const navLinks = document.querySelectorAll('.nav-link');
             const pages = document.querySelectorAll('.page-content');
+            
+            // Add an event listener to the scroll button
+            const scrollButton = document.querySelector('.hero-button-container a');
+            scrollButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = e.target.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
 
             // Function to show the correct page
             function showPage(pageId) {
