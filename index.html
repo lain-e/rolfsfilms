@@ -53,12 +53,12 @@
         </nav>
 
         <!-- Page Containers -->
-        <div id="welcome-page" class="page-content active-page bg-white p-8 rounded-xl shadow-md">
+        <div id="welcome-page" class="page-content bg-white p-8 rounded-xl shadow-md">
             <h1 class="text-4xl font-bold mb-4 text-center">Welcome</h1>
             <p class="text-xl text-gray-600 text-center">Welcome to the portfolio of Lilian Rolfs.</p>
         </div>
 
-        <div id="portfolio-page" class="page-content bg-white p-8 rounded-xl shadow-md">
+        <div id="portfolio-page" class="page-content active-page bg-white p-8 rounded-xl shadow-md">
             <h1 class="text-4xl font-bold mb-8 text-center">Portfolio</h1>
             <p class="text-lg text-gray-600 mb-8 text-center">A collection of film, video, and design works by Lilian Rolfs.</p>
             
@@ -219,7 +219,7 @@
             });
 
             // Handle initial page load based on URL hash
-            const initialHash = window.location.hash.substring(1) || 'welcome';
+            const initialHash = window.location.hash.substring(1) || 'portfolio';
             showPage(initialHash);
         });
     </script>
