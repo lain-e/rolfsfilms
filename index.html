@@ -18,7 +18,7 @@
             font-family: 'Oswald', sans-serif;
         }
         h2, h4 {
-            font-family: 'Abril Fatface', serif;
+            font-family: 'Abril+Fatface', serif;
         }
         .page-content {
             display: none;
@@ -95,6 +95,37 @@
                 height: 250px;
             }
         }
+        
+        .hero-video-container {
+            position: relative;
+            width: 100%;
+            height: 400px; /* Adjust height as needed */
+            overflow: hidden;
+            border-radius: 0.75rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .hero-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
@@ -118,7 +149,16 @@
         <!-- Page Containers -->
         <!-- Film & Video Page -->
         <div id="film-video-page" class="page-content active-page bg-white p-8 rounded-xl shadow-md">
-            <h1 class="text-5xl font-normal mb-8 text-center">Film & Video</h1>
+            
+            <!-- Hero Video Section -->
+            <div class="hero-video-container">
+                <img class="hero-video" src="https://raw.githubusercontent.com/lain-e/rolfsfilms/main/rfilm.gif" alt="A looping montage of film clips by Lilian Rolfs">
+                <div class="hero-overlay">
+                    <h1 class="text-5xl md:text-6xl font-normal mb-2">Lilian Rolfs</h1>
+                    <p class="text-2xl md:text-3xl font-light">FILMS</p>
+                </div>
+            </div>
+
             <p class="text-lg text-gray-600 mb-8 text-center">A collection of film and video works by Lilian Rolfs.</p>
             <div class="space-y-12">
                 <div class="portfolio-item">
